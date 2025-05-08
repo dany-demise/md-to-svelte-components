@@ -20,7 +20,8 @@
     $: components = componentRenderer(markdown);
 
     function componentRenderer(markdown:string): Array<ComponentWithMdContent> {
-        components = [];
+        let newComponents = [];
+
         const markdownAST = lexer(markdown);
         console.log(markdownAST);
 
@@ -28,13 +29,13 @@
 
             if (node.type == "heading") {
                 const content = node?.text ?? "";
-                components.push(
+                newComponents.push(
                     {component: Heading1, content: content}
                 );
             }
             
         }
-        return components;
+        return newComponents;
     }   
 </script>
 
