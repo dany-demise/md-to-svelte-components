@@ -1,18 +1,18 @@
-import { _Lexer } from './Lexer.ts';
-import { _Parser } from './Parser.ts';
-import { _Tokenizer } from './Tokenizer.ts';
-import { _Renderer } from './Renderer.ts';
-import { _TextRenderer } from './TextRenderer.ts';
-import { _Hooks } from './Hooks.ts';
-import { Marked } from './Instance.ts';
+import { _Lexer } from './Lexer.js';
+import { _Parser } from './Parser.js';
+import { _Tokenizer } from './Tokenizer.js';
+import { _Renderer } from './Renderer.js';
+import { _TextRenderer } from './TextRenderer.js';
+import { _Hooks } from './Hooks.js';
+import { Marked } from './Instance.js';
 import {
   _getDefaults,
   changeDefaults,
   _defaults,
-} from './defaults.ts';
-import type { MarkedExtension, MarkedOptions } from './MarkedOptions.ts';
-import type { Token, TokensList } from './Tokens.ts';
-import type { MaybePromise } from './Instance.ts';
+} from './defaults.js';
+import type { MarkedExtension, MarkedOptions } from './MarkedOptions.js';
+import type { Token, TokensList } from './Tokens.js';
+import type { MaybePromise } from './Instance.js';
 
 const markedInstance = new Marked();
 
@@ -108,13 +108,13 @@ export const parseInline = marked.parseInline;
 export const parse = marked;
 export const parser = _Parser.parse;
 export const lexer = _Lexer.lex;
-export { _defaults as defaults, _getDefaults as getDefaults } from './defaults.ts';
-export { _Lexer as Lexer } from './Lexer.ts';
-export { _Parser as Parser } from './Parser.ts';
-export { _Tokenizer as Tokenizer } from './Tokenizer.ts';
-export { _Renderer as Renderer } from './Renderer.ts';
-export { _TextRenderer as TextRenderer } from './TextRenderer.ts';
-export { _Hooks as Hooks } from './Hooks.ts';
-export { Marked } from './Instance.ts';
-export type * from './MarkedOptions.ts';
-export type * from './Tokens.ts';
+export { _defaults as defaults, _getDefaults as getDefaults } from './defaults.js';
+export { _Lexer as Lexer } from './Lexer.js';
+export { _Parser as Parser } from './Parser.js';
+export { _Tokenizer as Tokenizer } from './Tokenizer.js';
+export { _Renderer as Renderer } from './Renderer.js';
+export { _TextRenderer as TextRenderer } from './TextRenderer.js';
+export { _Hooks as Hooks } from './Hooks.js';
+export { Marked } from './Instance.js';
+export type * from './MarkedOptions.js';
+export type * from './Tokens.js';

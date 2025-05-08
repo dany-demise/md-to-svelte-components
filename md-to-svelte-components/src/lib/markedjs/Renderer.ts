@@ -1,12 +1,12 @@
-import { _defaults } from './defaults.ts';
+import { _defaults } from './defaults.js';
 import {
   cleanUrl,
   escape,
-} from './helpers.ts';
-import { other } from './rules.ts';
-import type { MarkedOptions } from './MarkedOptions.ts';
-import type { Tokens } from './Tokens.ts';
-import type { _Parser } from './Parser.ts';
+} from './helpers.js';
+import { other } from './rules.js';
+import type { MarkedOptions } from './MarkedOptions.js';
+import type { Tokens } from './Tokens.js';
+import type { _Parser } from './Parser.js';
 
 /**
  * Renderer
