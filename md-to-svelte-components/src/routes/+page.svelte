@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import Main from "$lib/components/Main.svelte";
-    import { parse } from "$lib/markedjs/marked";
+    import { parse, lexer } from "$lib/markedjs/marked";
     import { onMount } from "svelte";
 
     const components = [
@@ -14,6 +14,9 @@
       const markdownText = (document.getElementById('markdown-input') as HTMLTextAreaElement).value;
       const html = await parse(markdownText);
       (document.getElementById('html-output') as HTMLDivElement).innerHTML = html;
+
+      const tokens = lexer(markdownText);
+      console.log(tokens);
     }
 
     onMount( () => {
