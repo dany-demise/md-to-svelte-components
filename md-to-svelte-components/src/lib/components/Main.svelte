@@ -13,14 +13,29 @@
     export let markdown = "";
 
     interface ComponentWithMdContent {
-        component: typeof Heading1 | typeof List; // | typeof Paragraph | typeof Space ........
-        content: string;
+        component: Heading1 | List | Paragraph
+    }
+
+    class Heading1WithMdContent implements ComponentWithMdContent{
+        component:any = Heading1
+        content: string
+        constructor(t: string) {
+            this.content = t
+        }
+    }
+
+    class ParagraphWithMdContent implements ComponentWithMdContent{
+        component:any = Paragraph
+        content: string
+        constructor(t: string) {
+            this.content = t
+        }
     }
 
     $: components = componentRenderer(markdown);
 
     function componentRenderer(markdown:string): Array<ComponentWithMdContent> {
-        let newComponents = [];
+        let newComponents: Array<ComponentWithMdContent> = [];
 
         const markdownAST = lexer(markdown);
         console.log(markdownAST);
@@ -29,8 +44,17 @@
 
             if (node.type == "heading") {
                 const content = node?.text ?? "";
+                const newComponent = new Heading1WithMdContent(content)
                 newComponents.push(
-                    {component: Heading1, content: content}
+                    newComponent
+                );
+            }
+
+            if (node.type == "paragraph") {
+                const content = node?.text ?? "";
+                const newComponent = new ParagraphWithMdContent(content)
+                newComponents.push(
+                    newComponent
                 );
             }
             
@@ -40,5 +64,13 @@
 </script>
 
 {#each components as c}
-  <svelte:component this={c.component} content={c.content} />
+
+  {#if c instanceof Heading1WithMdContent}
+      <svelte:component this={c.component} content={c.content} />
+  {/if}
+
+  {#if c instanceof ParagraphWithMdContent}
+      <svelte:component this={c.component} content={c.content} />
+  {/if}
+
 {/each}
